@@ -8,10 +8,19 @@ public class Player {
     Inventory inv ;
     Scanner scan = new Scanner(System.in);
 
+    public Inventory getInv() {
+        return inv;
+    }
+
+    public void setInv(Inventory inv) {
+        this.inv = inv;
+    }
 
     public Player(String name) {
+        this.inv = new Inventory();
         this.name = name;
     }
+
 
     public void selectCha(){
         switch (chaMenu()){
@@ -46,6 +55,11 @@ public class Player {
 
         return chaId;
     }
+
+    public int getTotalDamage(){
+        return this.getDamage() + this.getInv().getDamage();
+    }
+
 
     public void initPlayer(String cName, int dmg , int hlthy, int mny){
         setcName(cName);
